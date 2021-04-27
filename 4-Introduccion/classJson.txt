@@ -1,0 +1,15 @@
+import 'dart:convert';
+
+void main(){
+  //final wolverine = new Heroe('Logan', 'Regeneracion');
+  final rawJson = '{ "nombre": "Logan", "poder": "Regeneracion"}';
+  
+  Map parsedJson = json.decode(rawJson);
+  
+  //print(parsedJson);
+  
+  final wolverine = new Heroe.fromJson(Map parsedJson);
+ print(wolverine.nombre);
+  print(wolverine.poder);
+}
+
