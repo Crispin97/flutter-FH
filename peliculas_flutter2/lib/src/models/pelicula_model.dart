@@ -4,8 +4,6 @@ class Peliculas{
   
   Peliculas.fromJsonList( List<dynamic> jsonList ){
 
-    if(jsonList == null) return;
-
     for(var item in jsonList){
       final pelicula = new Pelicula.fromJsonMap(item);
       items.add(pelicula);
@@ -16,23 +14,21 @@ class Peliculas{
 
 
 class Pelicula {
-
-  String uniqueId; 
   
-  double popularity;
-  int voteCount;
-  bool video;
-  String posterPath;
-  int id;
-  bool adult;
-  String backdropPath;
-  String originalLanguage;
-  String originalTitle;
-  List<int> genreIds;
-  String title;
-  double voteAverage;
-  String overview;
-  String releaseDate;
+  double? popularity;
+  int? voteCount;
+  bool? video;
+  String? posterPath;
+  int? id;
+  bool? adult;
+  String? backdropPath;
+  String? originalLanguage;
+  String? originalTitle;
+  List<int>? genreIds;
+  String? title;
+  double? voteAverage;
+  String? overview;
+  String? releaseDate;
 
   Pelicula({
     this.popularity,
@@ -66,6 +62,14 @@ class Pelicula {
     voteAverage = json['vote_average']/1;
     overview = json['overview'];
     releaseDate = json['release_date'];
+  }
+
+  get uniqueId {
+    return '$id-tarjeta';
+  }
+
+  get uniqueIdBanner {
+    return '$id-banner';
   }
 
   getPosterImg(){

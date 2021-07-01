@@ -73,7 +73,7 @@ class DataSearch extends SearchDelegate{
         builder: (BuildContext context, AsyncSnapshot<List<Pelicula>> snapshot) {
           if(snapshot.hasData){
 
-            final peliculas = snapshot.data;
+            final peliculas = snapshot.data!;
 
             return ListView(
               children: peliculas.map((pelicula){
@@ -84,11 +84,10 @@ class DataSearch extends SearchDelegate{
                     width: 50.0,
                     fit: BoxFit.cover,
                   ),
-                  title: Text(pelicula.title),
-                  subtitle: Text(pelicula.originalTitle),
+                  title: Text(pelicula.title!),
+                  subtitle: Text(pelicula.originalTitle!),
                   onTap: (){
                     close(context, null);
-                    pelicula.uniqueId = '';
                     Navigator.pushNamed(context, 'detalle', arguments: pelicula);
                   },
                 );
